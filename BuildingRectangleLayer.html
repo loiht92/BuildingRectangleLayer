@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="myCanvas" width="300" height="150" style="border:1px solid #d3d3d3;"></canvas>
+<script>
+    let rectangle=function(width, height ){
+        this.width =width;
+        this.height =height;
+        this.area =width*height;
+        this.perimeter =(width+height)*2;
+        this.getWidth = function () {
+            return this.width
+        };
+        this.getHeight = function () {
+            return this.height
+        };
+        this.getArea = function () {
+            return this.area
+        };
+        this.getPerimeter = function () {
+            return this.perimeter
+        };
+    };
+    // let Rectangle= new rectangle(400,500);
+    let Rectangle=new rectangle(Math.floor(Math.random()*100),Math.floor(Math.random()*100));
+    let width=Rectangle.getWidth();
+    document.write("<br>");
+    document.write("Width is:" +width);
+     document.write("<br>");
+    let height=Rectangle.getHeight();
+    document.write("Height is:"+height);
+    document.write("<br>");
+    let area=Rectangle.getArea();
+    document.write("Area is :" +area);
+    document.write("<br>");
+    let perimeter=Rectangle.getPerimeter();
+    document.write("Perimeter is :" +perimeter);
+    document.write("<br>");
+
+    function drawRectangle() {
+        let c = document.getElementById("myCanvas");
+        let ctx = c.getContext("2d");
+        ctx.beginPath();
+        ctx.fillStyle = "#FF0000";
+        ctx.fillRect(0, 0, width, height);
+    }
+    drawRectangle()
+</script>
+</body>
+</html>
